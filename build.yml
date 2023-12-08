@@ -1,0 +1,20 @@
+name: Build .NET app
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: |
+          cd MyWebApp
+          dotnet build --configuration Release
+          dotnet publish -c Release -o out
