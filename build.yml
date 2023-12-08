@@ -15,6 +15,5 @@ jobs:
 
       - name: Build
         run: |
-          cd MyWebApp
           dotnet build --configuration Release
           dotnet publish -c Release -o out
