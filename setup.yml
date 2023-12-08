@@ -17,20 +17,3 @@ jobs:
         uses: actions/setup-dotnet@v1
         with: 
           dotnet-version: 7.x
-
-      - name: Build
-        run: |
-          cd MyWebApp
-          dotnet build --configuration Release
-          dotnet publish -c Release -o out
-      - name: Organize Artifacts
-        run: |
-          # Remove the existing artifacts directory if it exists
-          Remove-Item -Path $HOME\artifacts -Recurse -Force -ErrorAction SilentlyContinue
-          # Create a new artifacts directory
-          New-Item -ItemType Directory -Path $HOME\artifacts
-          # Copy the artifacts to the new directory
-          Copy-Item -Path MyWebApp\out\* -Destination $HOME\artifacts\ -Recurse
-          
-    environment:
-      name: test-environment
