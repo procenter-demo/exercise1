@@ -10,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup .NET 7
-        uses: ./.github/actions/custom-setup-dotnet7
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Setup .NET 7
+      uses: ./.github/actions/custom-setup-dotnet7
 
   build:
     runs-on: ubuntu-latest
