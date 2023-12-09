@@ -15,4 +15,4 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Print Success Message
-      run: "You triggered this workflow!"
+      run: echo "You triggered this workflow!"
