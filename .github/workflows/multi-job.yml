@@ -1,0 +1,55 @@
+name: Multi-Job Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Build
+      run: echo "Building..."
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Run Tests
+      run: echo "Running tests..."
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Deploy
+      run: echo "Deploying..."
+
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Clean Up
+      run: echo "Cleaning up..."
+
+  final:
+    needs: [build, test, deploy, cleanup]
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Final Step
+      run: echo "All jobs completed!"
