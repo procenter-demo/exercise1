@@ -6,6 +6,13 @@ on:
       - main
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup .NET 7
+        uses: ./.github/actions/custom-setup-dotnet7
+
   build:
     runs-on: ubuntu-latest
 
