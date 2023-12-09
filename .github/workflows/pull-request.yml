@@ -17,8 +17,9 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main # The branch you want to create the pull request from
+          branch: dev # The branch you want to create the pull request from
           title: "Automated Pull Request from Dev"
           body: "This pull request was automatically created when pushing to the dev branch."
           labels: "automated"
+          base: main
           
