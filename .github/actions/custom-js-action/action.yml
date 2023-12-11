@@ -1,6 +1,9 @@
-name: JavaScript Action
-description: 'Prints a formatted message using inputs'
-
+name: 'Print GitHub Username'
+description: 'Prints the GitHub username of the current user.'
+inputs:
+  username:
+    description: 'GitHub username'
+    required: true
 runs:
   using: 'node12'
   main: 'index.js'
