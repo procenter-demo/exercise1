@@ -1,9 +1,6 @@
 name: JavaScript Action
 description: 'Prints a formatted message using inputs'
-inputs:
-  name:
-    description: 'Your name'
-    required: true
+
 runs:
   using: 'node12'
   main: 'index.js'
