@@ -1,5 +1,2 @@
-const { getInput } = require('@actions/core');
-
-const username = getInput('username');
-
-console.log(`GitHub Username: ${username}`);
+const name = GitHub User;
+console.log(`Hello, ${name}! This is My Custom Action.`);
