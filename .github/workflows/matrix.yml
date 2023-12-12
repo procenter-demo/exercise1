@@ -1,0 +1,33 @@
+name: Matrix Build and Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        dotnet: [3.1, 5.0, 6.0]
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ matrix.dotnet }}
+
+    - name: Display OS and .NET Core Version
+      run: |
+        echo "Running on: ${{ matrix.os }}"
+        echo "Using .NET Core version: ${{ matrix.dotnet }}"
+
+    - name: Build and Test
+      run: |
+        dotnet build --configuration Release
+        dotnet test
